@@ -1,0 +1,1 @@
+A simple example repo that is used to demonstrate all things bitHound.
