@@ -1,14 +1,49 @@
 {
-  "name": "todomvc-react",
-  "version": "1.0.0",
-  "description": "One place for all your TODOs.",
-  "main": "index.js",
-  "licencse": "MIT",
+  "name": "lablr",
+  "description": "Building a thing.",
+  "version": "1.37.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
   "dependencies": {
-    "classnames": "^2.1.5",
-    "director": "^1.2.0",
-    "react": "^0.13.3",
-    "todomvc-app-css": "^2.0.0",
-    "todomvc-common": "^1.0.1"
+    "ampersand-app": "^1.0.3",
+    "ampersand-model": "^5.0.3",
+    "ampersand-react-mixin": "^0.1.1",
+    "ampersand-rest-collection": "^4.0.0",
+    "ampersand-router": "^3.0.2",
+    "autoprefixer-stylus": "^0.5.0",
+    "babel-core": "^5.1.11",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.10.1",
+    "file-loader": "^0.8.1",
+    "hjs-webpack": "^1.8.0",
+    "local-links": "^1.3.0",
+    "octicons": "^2.2.0",
+    "qs": "^2.4.1",
+    "react": "^0.13.2",
+    "react-hot-loader": "^1.2.5",
+    "standard": "^3.7.0",
+    "style-loader": "^0.10.2",
+    "stylus-loader": "^1.1.0",
+    "surge": "^0.11.1",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.8.5",
+    "webpack-dev-server": "^1.8.0",
+    "xhr": "^2.0.1",
+    "yeticss": "^6.0.3"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags",
+    "deploy": "surge -p public -d lablr-2.surge.sh",
+    "lint": "standard",
+    "prebuild": "rm -rf public && mkdir public",
+    "start": "hjs-dev-server --config webpack.config.js",
+    "yolo": "npm run commit && npm run build && npm run deploy"
+  },
+  "standard": {
+    "ignore": [
+      "public/**"
+    ]
   }
 }
